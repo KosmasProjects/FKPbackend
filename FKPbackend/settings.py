@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "aktualnosci",
     "organization",
     "partners",
+    "MonumentType",
+    "monument"
 ]
 
 MIDDLEWARE = [
