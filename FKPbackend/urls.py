@@ -24,4 +24,6 @@ urlpatterns = i18n_patterns(
     path("admin/", admin.site.urls),
     path("people/", include("people.urls")),
     path("aktualnosci/", include("aktualnosci.urls")),
+    path("partners/", include("partners.urls")),
+    # path("organizacje/", include("organizacje.urls")),
 )
