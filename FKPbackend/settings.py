@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "partners",
     "MonumentType",
     "monument",
+    "auth_app",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -57,11 +59,14 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "auth_app.middleware.TokenAuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    
 ]
 
 ROOT_URLCONF = "FKPbackend.urls"
@@ -141,3 +146,8 @@ STATIC_ROOT = os.path.join("/home/KosmaCieliczko/FKPbackend/staticfiles", "stati
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+CSRF_COOKIE_SECURE = False
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
