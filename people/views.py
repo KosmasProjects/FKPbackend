@@ -23,7 +23,6 @@ def person_new(request):
     organization_id = data.pop("organization")[0]
     organization = get_object_or_404(Organization, pk=organization_id)
     photo = request.FILES["photo"]
-    print(data)
 
     client_id = os.getenv("AZURE_CLIENT_ID")
     tenant_id = os.getenv("AZURE_TENANT_ID")
@@ -83,7 +82,7 @@ def person_detail(request, pk):
 def person_edit(request, pk):
     person = get_object_or_404(Person, pk=pk)
     serializer = PersonSerializer(person, data=request.data)
-    if serializer.is_valid():
+    if serializer.is_valid(): 
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

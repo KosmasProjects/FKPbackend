@@ -32,7 +32,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "kosmacieliczko.pythonanywhere.com",
-    "127.0.0.1",]
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     "auth_app",
     "corsheaders",
 ]
+FILE_UPLOAD_MAX_MEMORY_SIZE = 50 * 1024 * 1024  # 10 Mb limit
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -66,7 +68,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
-    
 ]
 
 ROOT_URLCONF = "FKPbackend.urls"
@@ -89,8 +90,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "FKPbackend.wsgi.application"
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -98,9 +99,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-        'OPTIONS': {
-            'timeout': 20,
-        }
+        "OPTIONS": {
+            "timeout": 20,
+        },
     }
 }
 
